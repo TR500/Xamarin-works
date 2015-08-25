@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{7455C272-4CE3-4220-9DE4-1BF2EC9180E3}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>todolist</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)todolist.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LoginForm\LoginXamlPage.xaml.cs">
+      <DependentUpon>LoginXamlPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)TaskList\TaskList.xaml.cs">
+      <DependentUpon>TaskList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TaskModel\UserTask.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TaskList\TaskCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AddTask\AddTask.xaml.cs">
+      <DependentUpon>AddTask.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)LoginForm\LoginXamlPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TaskList\TaskList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)AddTask\AddTask.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)LoginForm\" />
+    <Folder Include="$(MSBuildThisFileDirectory)TaskList\" />
+    <Folder Include="$(MSBuildThisFileDirectory)CreateNewTask\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Models\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Models\TaskModel\" />
+    <Folder Include="$(MSBuildThisFileDirectory)AddTask\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="todolist.LoginXamlPage">
+	<ContentPage.Content>
+
+<!--	<AbsoluteLayout
+	VerticalOptions = "CenterAndExpand">
+
+	 <Entry x:Name="userNameEntry"
+	 Placeholder="Username" 
+	 VerticalOptions = "CenterAndExpand"
+	 />
+	  <Entry x:Name="passwordEntry"
+	  Placeholder="Password" 
+	 AbsoluteLayout.LayoutBounds = "10,180,280,30"
+	 IsPassword="true"
+	 />
+
+	 <Button Text ="Login"
+	 AbsoluteLayout.LayoutBounds = "35,210,180,30"
+	 Clicked = "loginButtonClicked"
+	 />
+	</AbsoluteLayout>-->
+
+	<StackLayout Spacing="20" Padding="10"
+                         VerticalOptions="Center">
+                <Entry Placeholder="Username"
+                x:Name="userNameEntry"
+                       />
+                <Entry Placeholder="Password"
+                x:Name="passwordEntry"
+                       
+                       IsPassword="true"/>
+                <Button Text="Login" TextColor="White"
+                        BackgroundColor="#77D065"
+                        Clicked = "loginButtonClicked"
+                        />
+            </StackLayout>
+
+
+
+	</ContentPage.Content>
+</ContentPage>
