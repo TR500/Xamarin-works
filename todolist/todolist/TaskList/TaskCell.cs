@@ -8,8 +8,6 @@ namespace todolist
 		// Learning Reference : https://www.syntaxismyui.com/xamarin-forms-listview-custom-viewcell-recipe/
 		public TaskCell ()
 		{
-
-
 			var taskImage = new Image {
 				HeightRequest = 50,
 				WidthRequest = 50,
@@ -25,7 +23,8 @@ namespace todolist
 				FontSize = 12,
 				TextColor = Color.Black
 			};
-			taskLabel.SetBinding (Label.TextProperty, "TaskName");
+
+			taskLabel.SetBinding (Label.TextProperty, "taskName");
 
 			var viewLayout = new StackLayout {
 				Padding  = new Thickness(15,10,0,0),
@@ -43,7 +42,6 @@ namespace todolist
 			};
 				
 			this.View = cellLayout;
-
 		}
 
 	}

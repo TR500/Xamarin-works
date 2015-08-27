@@ -21,6 +21,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)AddTask\AddTask.xaml.cs">
       <DependentUpon>AddTask.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)SQLite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SQLiteAsync.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SQLiteHelper\SqliteHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)LoginForm\LoginXamlPage.xaml">
@@ -40,5 +43,9 @@
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
     <Folder Include="$(MSBuildThisFileDirectory)Models\TaskModel\" />
     <Folder Include="$(MSBuildThisFileDirectory)AddTask\" />
+    <Folder Include="$(MSBuildThisFileDirectory)SQLiteHelper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)packages.config" />
   </ItemGroup>
 </Project>

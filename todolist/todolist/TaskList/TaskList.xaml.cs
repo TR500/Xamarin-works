@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
 
 namespace todolist
@@ -12,11 +11,10 @@ namespace todolist
 			InitializeComponent ();
 			this.Title = "Task List";
 			addBarButtonItem ();
-			drawTaskListinPage ();
 		}
 
 		void drawTaskListinPage(){
-
+			
 			// hide the back button
 			NavigationPage.SetHasBackButton (this, false);
 
@@ -25,12 +23,16 @@ namespace todolist
 				RowHeight = 60
 			};
 					
+			SqliteHelper helper = new SqliteHelper ();
+
+			listview.ItemsSource = helper.FetchUserTask ();
 
 			// feed data to the list item
-			listview.ItemsSource = new UserTask[] {
-				new UserTask("Learn Xamarin"),
-				new UserTask("Go to Gym"),
-			};
+			/*listview.ItemsSource = new string[] {
+				"Fill iTrac",
+				"Commit code",
+				"Be amazing :P"
+			};*/
 
 			// display which item is visible 
 			listview.ItemTemplate = new DataTemplate(typeof(TaskCell));
@@ -47,6 +49,14 @@ namespace todolist
 				Order = ToolbarItemOrder.Primary,
 				Command = new Command(() => Navigation.PushAsync(new AddTask())),
 			});
+		}
+
+		protected override void OnAppearing ()
+		{
+			base.OnAppearing ();
+
+			drawTaskListinPage ();
+
 		}
 	}
 }

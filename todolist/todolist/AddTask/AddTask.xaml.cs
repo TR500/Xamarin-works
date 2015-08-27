@@ -7,10 +7,13 @@ namespace todolist
 {
 	public partial class AddTask : ContentPage
 	{
+		SqliteHelper databaseOP;
+
 		public AddTask ()
 		{
 			InitializeComponent ();
 
+			databaseOP = new SqliteHelper ();
 			dtPicker.Date = DateTime.Now;
 			taskTime.Time = DateTime.Now.TimeOfDay;
 
@@ -46,6 +49,8 @@ namespace todolist
 		async void displaySomeAlert(){
 			var answer = await DisplayAlert("Add","You sure you want to save this","YES","NO");
 			if (answer.Equals (true)) {
+				int operationResult = databaseOP.SaveRecord (this.prepareObject ());
+				Console.WriteLine (operationResult);
 				await DisplayAlert ("Alert", "Data saved", "Ok");
 			} else {
 				await DisplayAlert ("Alert", "Data saving failed", "OK");
@@ -53,8 +58,13 @@ namespace todolist
 		}
 
 
-
-
+		UserTask prepareObject(){
+			UserTask task = new UserTask ();
+			task.taskName = addTaskEntry.Text;
+			task.taskDate = dtPicker.Date;
+			task.taskTime = DateTime.Today + taskTime.Time;
+			return task;
+		}
 	}
 }
 
